@@ -1,0 +1,19 @@
+DROP DATABASE IF EXISTS fabrica;
+CREATE DATABASE fabrica;
+USE fabrica;
+
+CREATE TABLE fabricante(
+	codigo INT (10) PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100)
+);
+
+CREATE TABLE producto(
+	codigo INT (10) PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    precio DOUBLE,
+    codigo_fabricante INT(10)
+);
+
+ALTER TABLE producto
+ADD CONSTRAINT FK_CODIGO_FABRICANTE
+FOREIGN KEY (CODIGO_FABRICANTE) REFERENCES fabricante (codigo);
